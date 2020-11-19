@@ -5,12 +5,12 @@ public class AppFloatVal extends AppVal {
 
     public AppFloatVal(String key, float val) {
         super(key);
-        mVal = val;
+        mVal = getSp().getFloat(getKey(), val);
     }
 
     public AppFloatVal(String spName, String key, float val) {
         super(spName, key);
-        mVal = val;
+        mVal = getSp().getFloat(getKey(), val);
     }
 
     public float get() {

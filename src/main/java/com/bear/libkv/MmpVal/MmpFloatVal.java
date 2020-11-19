@@ -7,12 +7,12 @@ public class MmpFloatVal extends MmpVal {
 
     public MmpFloatVal(String key, float val) {
         super(key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getFloat(getKey(), val);
     }
 
     public MmpFloatVal(String mmkvId, String key, float val) {
         super(mmkvId, key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getFloat(getKey(), val);
     }
 
     public float get() {

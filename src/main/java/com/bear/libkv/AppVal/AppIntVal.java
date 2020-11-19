@@ -6,12 +6,12 @@ public class AppIntVal extends AppVal {
 
     public AppIntVal(String key, int val) {
         super(key);
-        mVal = val;
+        mVal = getSp().getInt(getKey(), val);
     }
 
     public AppIntVal(String spName, String key, int val) {
         super(spName, key);
-        mVal = val;
+        mVal = getSp().getInt(getKey(), val);
     }
 
     public int get() {

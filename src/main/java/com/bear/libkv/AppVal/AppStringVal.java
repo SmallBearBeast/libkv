@@ -6,13 +6,13 @@ public class AppStringVal extends AppVal {
 
     public AppStringVal(String key, String val) {
         super(key);
-        mVal = val;
+        mVal = getSp().getString(getKey(), val);
     }
 
 
     public AppStringVal(String spName, String key, String val) {
         super(spName, key);
-        mVal = val;
+        mVal = getSp().getString(getKey(), val);
     }
 
     public String get() {

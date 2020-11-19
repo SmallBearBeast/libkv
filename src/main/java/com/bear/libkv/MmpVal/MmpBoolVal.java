@@ -7,12 +7,12 @@ public class MmpBoolVal extends MmpVal {
 
     public MmpBoolVal(String key, boolean val) {
         super(key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getBoolean(getKey(), val);
     }
 
     public MmpBoolVal(String mmkvId, String key, boolean val) {
         super(mmkvId, key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getBoolean(getKey(), val);
     }
 
     public boolean get() {

@@ -7,12 +7,12 @@ public class MmpStringVal extends MmpVal {
 
     public MmpStringVal(String key, String val) {
         super(key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getString(getKey(), val);
     }
 
     public MmpStringVal(String mmkvId, String key, String val) {
         super(mmkvId, key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getString(getKey(), val);
     }
 
     public String get() {

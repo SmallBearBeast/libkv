@@ -42,6 +42,7 @@ public abstract class AppVal {
         for (String spName : spNames) {
             if (sSpNameSet.contains(spName)) {
                 sApp.getSharedPreferences(spName, Context.MODE_PRIVATE).edit().clear().apply();
+                sSpNameSet.remove(spName);
             }
         }
     }
@@ -49,6 +50,7 @@ public abstract class AppVal {
     public static void clearAll() {
         for (String spName : sSpNameSet) {
             sApp.getSharedPreferences(spName, Context.MODE_PRIVATE).edit().clear().apply();
+            sSpNameSet.clear();
         }
     }
 

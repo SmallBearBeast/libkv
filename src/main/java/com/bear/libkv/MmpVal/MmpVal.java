@@ -39,6 +39,7 @@ public abstract class MmpVal {
         for (String mmkvId : mmkvIds) {
             if (sMmkvIdSet.contains(mmkvId)) {
                 MMKV.mmkvWithID(mmkvId).clearAll();
+                sMmkvIdSet.remove(mmkvId);
             }
         }
     }
@@ -46,6 +47,7 @@ public abstract class MmpVal {
     public static void clearAll() {
         for (String mmkvId : sMmkvIdSet) {
             MMKV.mmkvWithID(mmkvId).clearAll();
+            sMmkvIdSet.clear();
         }
     }
 

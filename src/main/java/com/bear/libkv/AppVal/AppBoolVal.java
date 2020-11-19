@@ -5,12 +5,12 @@ public class AppBoolVal extends AppVal {
 
     public AppBoolVal(String key, boolean val) {
         super(key);
-        mVal = val;
+        mVal = getSp().getBoolean(getKey(), val);
     }
 
     public AppBoolVal(String spName, String key, boolean val) {
         super(spName, key);
-        mVal = val;
+        mVal = getSp().getBoolean(getKey(), val);
     }
 
     public boolean get() {

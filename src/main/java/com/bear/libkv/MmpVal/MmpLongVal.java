@@ -7,12 +7,12 @@ public class MmpLongVal extends MmpVal {
 
     public MmpLongVal(String key, long val) {
         super(key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getLong(getKey(), val);
     }
 
     public MmpLongVal(String mmkvId, String key, long val) {
         super(mmkvId, key);
-        mVal = val;
+        mVal = MMKV.mmkvWithID(getMmkvID()).getLong(getKey(), val);
     }
 
     public long get() {

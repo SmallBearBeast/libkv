@@ -5,12 +5,12 @@ public class AppLongVal extends AppVal {
 
     public AppLongVal(String key, long val) {
         super(key);
-        mVal = val;
+        mVal = getSp().getLong(getKey(), val);
     }
 
     public AppLongVal(String spName, String key, long val) {
         super(spName, key);
-        mVal = val;
+        mVal = getSp().getLong(getKey(), val);
     }
 
     public long get() {
