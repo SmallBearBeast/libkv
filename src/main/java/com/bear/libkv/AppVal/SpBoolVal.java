@@ -1,14 +1,14 @@
 package com.bear.libkv.AppVal;
 
-public class AppBoolVal extends AppVal {
+public class SpBoolVal extends SpVal {
     private boolean mVal;
 
-    public AppBoolVal(String key, boolean val) {
+    public SpBoolVal(String key, boolean val) {
         super(key);
         mVal = getSp().getBoolean(getKey(), val);
     }
 
-    public AppBoolVal(String spName, String key, boolean val) {
+    public SpBoolVal(String spName, String key, boolean val) {
         super(spName, key);
         mVal = getSp().getBoolean(getKey(), val);
     }

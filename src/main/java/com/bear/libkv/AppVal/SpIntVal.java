@@ -1,15 +1,15 @@
 package com.bear.libkv.AppVal;
 
 
-public class AppIntVal extends AppVal {
+public class SpIntVal extends SpVal {
     private int mVal;
 
-    public AppIntVal(String key, int val) {
+    public SpIntVal(String key, int val) {
         super(key);
         mVal = getSp().getInt(getKey(), val);
     }
 
-    public AppIntVal(String spName, String key, int val) {
+    public SpIntVal(String spName, String key, int val) {
         super(spName, key);
         mVal = getSp().getInt(getKey(), val);
     }

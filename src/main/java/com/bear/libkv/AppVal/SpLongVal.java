@@ -1,14 +1,14 @@
 package com.bear.libkv.AppVal;
 
-public class AppLongVal extends AppVal {
+public class SpLongVal extends SpVal {
     private long mVal;
 
-    public AppLongVal(String key, long val) {
+    public SpLongVal(String key, long val) {
         super(key);
         mVal = getSp().getLong(getKey(), val);
     }
 
-    public AppLongVal(String spName, String key, long val) {
+    public SpLongVal(String spName, String key, long val) {
         super(spName, key);
         mVal = getSp().getLong(getKey(), val);
     }

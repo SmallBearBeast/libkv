@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 import java.util.HashSet;
 
-public abstract class AppVal {
+public abstract class SpVal {
     private static final String DEFAULT_APPVAL_NAME = "default_appval_name";
     private static boolean sIsInit = false;
     private static final HashSet<String> sSpNameSet = new HashSet<>();
@@ -14,11 +14,11 @@ public abstract class AppVal {
     private String mSpName;
     private String mKey;
 
-    AppVal(String key) {
+    SpVal(String key) {
         this(DEFAULT_APPVAL_NAME, key);
     }
 
-    AppVal(String spName, String key) {
+    SpVal(String spName, String key) {
         checkInit();
         mSpName = spName;
         mKey = key;

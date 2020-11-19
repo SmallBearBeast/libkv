@@ -2,15 +2,15 @@ package com.bear.libkv.MmpVal;
 
 import com.tencent.mmkv.MMKV;
 
-public class MmpFloatVal extends MmpVal {
+public class MmkvFloatVal extends MmkvVal {
     private float mVal;
 
-    public MmpFloatVal(String key, float val) {
+    public MmkvFloatVal(String key, float val) {
         super(key);
         mVal = MMKV.mmkvWithID(getMmkvID()).getFloat(getKey(), val);
     }
 
-    public MmpFloatVal(String mmkvId, String key, float val) {
+    public MmkvFloatVal(String mmkvId, String key, float val) {
         super(mmkvId, key);
         mVal = MMKV.mmkvWithID(getMmkvID()).getFloat(getKey(), val);
     }

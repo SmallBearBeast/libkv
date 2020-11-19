@@ -6,18 +6,18 @@ import com.tencent.mmkv.MMKV;
 
 import java.util.HashSet;
 
-public abstract class MmpVal {
+public abstract class MmkvVal {
     static final String DEFAULT_MMPVAL_ID = "default_mmpval_id";
     private static boolean sIsInit = false;
     private static final HashSet<String> sMmkvIdSet = new HashSet<>();
     private String mMmkvId;
     private String mKey;
 
-    MmpVal(String key) {
+    MmkvVal(String key) {
         this(DEFAULT_MMPVAL_ID, key);
     }
 
-    MmpVal(String mmkvId, String key) {
+    MmkvVal(String mmkvId, String key) {
         checkInit();
         mMmkvId = mmkvId;
         mKey = key;

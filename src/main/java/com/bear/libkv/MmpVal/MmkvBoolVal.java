@@ -2,15 +2,15 @@ package com.bear.libkv.MmpVal;
 
 import com.tencent.mmkv.MMKV;
 
-public class MmpBoolVal extends MmpVal {
+public class MmkvBoolVal extends MmkvVal {
     private boolean mVal;
 
-    public MmpBoolVal(String key, boolean val) {
+    public MmkvBoolVal(String key, boolean val) {
         super(key);
         mVal = MMKV.mmkvWithID(getMmkvID()).getBoolean(getKey(), val);
     }
 
-    public MmpBoolVal(String mmkvId, String key, boolean val) {
+    public MmkvBoolVal(String mmkvId, String key, boolean val) {
         super(mmkvId, key);
         mVal = MMKV.mmkvWithID(getMmkvID()).getBoolean(getKey(), val);
     }

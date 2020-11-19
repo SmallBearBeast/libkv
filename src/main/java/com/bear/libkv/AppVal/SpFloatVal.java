@@ -1,14 +1,14 @@
 package com.bear.libkv.AppVal;
 
-public class AppFloatVal extends AppVal {
+public class SpFloatVal extends SpVal {
     private float mVal;
 
-    public AppFloatVal(String key, float val) {
+    public SpFloatVal(String key, float val) {
         super(key);
         mVal = getSp().getFloat(getKey(), val);
     }
 
-    public AppFloatVal(String spName, String key, float val) {
+    public SpFloatVal(String spName, String key, float val) {
         super(spName, key);
         mVal = getSp().getFloat(getKey(), val);
     }
