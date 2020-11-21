@@ -1,12 +1,15 @@
 package com.bear.libkv.MmpVal;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.tencent.mmkv.MMKV;
 
 import java.util.HashSet;
 
 public abstract class MmkvVal {
+    private static final String SP_TO_MMKV_FLAG = "sp_to_mmkv_flag";
     static final String DEFAULT_MMPVAL_ID = "default_mmpval_id";
     private static boolean sIsInit = false;
     private static final HashSet<String> sMmkvIdSet = new HashSet<>();
@@ -48,6 +51,17 @@ public abstract class MmkvVal {
         for (String mmkvId : sMmkvIdSet) {
             MMKV.mmkvWithID(mmkvId).clearAll();
             sMmkvIdSet.clear();
+        }
+    }
+
+    public static void importFromSharedPreferences(Context context, String mmkvId, String spName) {
+        checkInit();
+        MMKV mmkv = MMKV.mmkvWithID(mmkvId);
+        if (!mmkv.contains(SP_TO_MMKV_FLAG)) {
+            SharedPreferences preferences = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
+            MMKV.mmkvWithID(mmkvId).importFromSharedPreferences(preferences);
+            preferences.edit().clear().apply();
+            mmkv.putBoolean(SP_TO_MMKV_FLAG, true);
         }
     }
 
