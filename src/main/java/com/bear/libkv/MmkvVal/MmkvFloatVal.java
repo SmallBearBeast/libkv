@@ -1,4 +1,4 @@
-package com.bear.libkv.MmpVal;
+package com.bear.libkv.MmkvVal;
 
 import com.tencent.mmkv.MMKV;
 

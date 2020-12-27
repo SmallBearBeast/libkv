@@ -1,22 +1,20 @@
-package com.bear.libkv.AppVal;
+package com.bear.libkv.SpVal;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.bear.libkv.KV;
+
 import java.util.HashSet;
 
-public abstract class SpVal {
-    public static final String DEFAULT_APPVAL_NAME = "default_appval_name";
+abstract class SpVal<V> implements KV<V>{
     private static boolean sIsInit = false;
     private static final HashSet<String> sSpNameSet = new HashSet<>();
     private static Application sApp;
     private String mSpName;
     private String mKey;
-
-    SpVal(String key) {
-        this(DEFAULT_APPVAL_NAME, key);
-    }
+    protected V mVal;
 
     SpVal(String spName, String key) {
         checkInit();
@@ -25,12 +23,12 @@ public abstract class SpVal {
         sSpNameSet.add(spName);
     }
 
-    public static void init(Application app) {
+    static void init(Application app) {
         sIsInit = true;
         sApp = app;
     }
 
-    public static void preload(String... spNames) {
+    static void preload(String... spNames) {
         checkInit();
         for (String spName : spNames) {
             sApp.getSharedPreferences(spName, Context.MODE_PRIVATE);
@@ -38,7 +36,7 @@ public abstract class SpVal {
         }
     }
 
-    public static void clear(String... spNames) {
+    static void clear(String... spNames) {
         for (String spName : spNames) {
             if (sSpNameSet.contains(spName)) {
                 sApp.getSharedPreferences(spName, Context.MODE_PRIVATE).edit().clear().apply();
@@ -47,7 +45,7 @@ public abstract class SpVal {
         }
     }
 
-    public static void clearAll() {
+    static void clearAll() {
         for (String spName : sSpNameSet) {
             sApp.getSharedPreferences(spName, Context.MODE_PRIVATE).edit().clear().apply();
             sSpNameSet.clear();
