@@ -8,13 +8,14 @@ class SpStringVal extends SpVal<String> {
         mVal = getSp().getString(getKey(), val);
     }
 
+    @NonNull
     @Override
     public String get() {
         return mVal = getSp().getString(getKey(), mVal);
     }
 
     @Override
-    public void set(String val) {
+    public void set(@NonNull String val) {
         mVal = val;
         getEditor().putString(getKey(), mVal).apply();
     }

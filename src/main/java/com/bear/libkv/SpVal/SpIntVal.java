@@ -8,6 +8,7 @@ class SpIntVal extends SpVal<Integer> {
         mVal = getSp().getInt(getKey(), val);
     }
 
+    @NonNull
     @Override
     public Integer get() {
         return mVal = getSp().getInt(getKey(), mVal);

@@ -8,6 +8,7 @@ class SpFloatVal extends SpVal<Float> {
         mVal = getSp().getFloat(getKey(), val);
     }
 
+    @NonNull
     @Override
     public Float get() {
         return mVal = getSp().getFloat(getKey(), mVal);

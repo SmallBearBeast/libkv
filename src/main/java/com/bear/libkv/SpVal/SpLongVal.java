@@ -8,13 +8,14 @@ class SpLongVal extends SpVal<Long> {
         mVal = getSp().getLong(getKey(), val);
     }
 
+    @NonNull
     @Override
     public Long get() {
         return mVal = getSp().getLong(getKey(), mVal);
     }
 
     @Override
-    public void set(Long val) {
+    public void set(@NonNull Long val) {
         mVal = val;
         getEditor().putLong(getKey(), mVal).apply();
     }

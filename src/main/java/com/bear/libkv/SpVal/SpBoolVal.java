@@ -8,6 +8,7 @@ class SpBoolVal extends SpVal<Boolean> {
         mVal = getSp().getBoolean(getKey(), val);
     }
 
+    @NonNull
     @Override
     public Boolean get() {
         return mVal = getSp().getBoolean(getKey(), mVal);

@@ -3,7 +3,7 @@ package com.bear.libkv;
 import androidx.annotation.NonNull;
 
 public interface KV<V> {
-    V get();
+    @NonNull V get();
 
     void set(@NonNull V val);
 
