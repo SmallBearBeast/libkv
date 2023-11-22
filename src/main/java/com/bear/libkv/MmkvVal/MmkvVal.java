@@ -28,9 +28,9 @@ public abstract class MmkvVal {
         sMmkvIdSet.add(mmkvId);
     }
 
-    public static void init(Application app) {
+    public static void init(Context context) {
         sIsInit = true;
-        MMKV.initialize(app);
+        MMKV.initialize(context);
     }
 
     static void checkInit() {

@@ -1,6 +1,7 @@
 package com.bear.libkv.SpVal;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.bear.libkv.KV;
 
@@ -26,8 +27,8 @@ public class SpHelper {
         throw new RuntimeException();
     }
 
-    public static void init(Application app) {
-        SpVal.init(app);
+    public static void init(Context context) {
+        SpVal.init(context);
     }
 
     public static void preload(String... spNames) {
