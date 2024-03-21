@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -31,4 +32,21 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     rootProject.ext.importDependencies(this, rootProject.ext.libkvDependenciesMap)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                //建议和github地址对应，否则对jitpack无效
+                groupId = 'com.github.SmallBearBeast'
+                //建议和github仓库名称对应，否则对jitpack无效
+                artifactId = 'libkv'
+                //建议和release的tag相同，否则对jitpack无效
+                version = '1.0.2'
+            }
+        }
+    }
 }
